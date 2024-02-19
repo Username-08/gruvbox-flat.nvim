@@ -211,9 +211,12 @@ function util.load(theme)
 
   -- link to new tree-sitter highlight groups
   if vim.fn.has('nvim-0.8.0') == 1 then
+    vim.cmd('highlight! link @module TSNamespace')
+    vim.cmd('highlight! link @variable.parameter TSNamespace')
     vim.cmd('highlight! link @constant TSConstant')
     vim.cmd('highlight! link @constructor TSConstructor')
     vim.cmd('highlight! link @field TSField')
+    vim.cmd('highlight! link @variable.member TSField')
     vim.cmd('highlight! link @include TSInclude')
     vim.cmd('highlight! link @keyword TSKeyword')
     vim.cmd('highlight! link @type.qualifier TSKeyword')

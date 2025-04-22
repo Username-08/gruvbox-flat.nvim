@@ -116,7 +116,7 @@ function M.setup(config)
     Special = { fg = c.red }, -- (preferred) any special symbol
     -- SpecialChar   = { }, --  special character in a constant
     -- Tag           = { }, --    you can use CTRL-] on this
-    -- Delimiter     = { }, --  character that needs attention
+    Delimiter     = { fg= c.orange}, --  character that needs attention
     -- SpecialComment= { }, -- special things inside a comment
     -- Debug         = { }, --    debugging statements
 

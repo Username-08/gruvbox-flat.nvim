@@ -19,10 +19,12 @@ function M.setup(config)
     ColorColumn = { bg = c.bg_visual }, -- used for the columns set with 'colorcolumn'
     Conceal = { fg = c.fg_gutter }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor = { fg = c.bg, bg = c.fg }, -- character under the cursor
+    CursorLine = {bg=None}, -- cursorline Username-08
+    WinSeparator = {fg=c.border}, -- separator between splits Username-08
     lCursor = { fg = c.bg, bg = c.fg }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM = { fg = c.bg, bg = c.fg }, -- like Cursor, but used when in IME mode |CursorIM|
     CursorColumn = { bg = c.line_cursor }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    CursorLine = { bg = c.line_cursor }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    -- CursorLine = { bg = c.line_cursor }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory = { fg = c.blue }, -- directory names (and other special names in listings)
     DiffAdd = { bg = c.diff.add }, -- diff mode: Added line |diff.txt|
     DiffChange = { bg = c.diff.change }, -- diff mode: Changed line |diff.txt|
@@ -171,6 +173,12 @@ function M.setup(config)
     LspDiagnosticsUnderlineWarning = { style = "undercurl", sp = c.warning }, -- Used to underline "Warning" diagnostics
     LspDiagnosticsUnderlineInformation = { style = "undercurl", sp = c.info }, -- Used to underline "Information" diagnostics
     LspDiagnosticsUnderlineHint = { style = "undercurl", sp = c.hint }, -- Used to underline "Hint" diagnostics
+
+    -- new diagnostic groups Username-08
+    DiagnosticWarn = {fg=c.yellow},
+    DiagnosticUnderlineError = {style="undercurl"},
+    DiagnosticUnderlineHint = {gui=undercurl, sp=c.aqua},
+    DiagnosticUnderlineWarn = {gui=undercurl},
 
     -- LspDiagnosticsFloatingError         = { }, -- Used to color "Error" diagnostic messages in diagnostics float
     -- LspDiagnosticsFloatingWarning       = { }, -- Used to color "Warning" diagnostic messages in diagnostics float
@@ -343,6 +351,45 @@ function M.setup(config)
     LspSagaDefPreviewBorder = {fg = c.border},
     LspLinesDiagBorder = { fg = c.border},
 
+    -- LspSaga WinBar
+    SagaWinbarKey = { fg=c.red },
+    SagaWinbarEnum = { fg=c.yellow },
+    SagaWinbarFile = { fg=c.green },
+    SagaWinbarNull = { fg=c.orange },
+    SagaWinbarArray = { fg=c.blue },
+    SagaWinbarClass = { fg=c.yellow },
+    SagaWinbarEvent = { fg=c.blue },
+    SagaWinbarField = { fg=c.aqua },
+    SagaWinbarMacro = { fg=c.orange },
+    SagaWinbarMethod = { fg=c.aqua },
+    SagaWinbarModule = { fg=c.yellow },
+    SagaWinbarNumber = { fg=c.orange },
+    SagaWinbarObject = { fg=c.yellow },
+    SagaWinbarString = { fg=c.green },
+    SagaWinbarStruct = { fg=c.yellow },
+    SagaWinbarBoolean = { fg=c.orange },
+    SagaWinbarPackage = { fg=c.orange },
+    SagaWinbarConstant = { fg=c.yellow },
+    SagaWinbarFunction = { fg=c.blue },
+    SagaWinbarOperator = { fg=c.orange },
+    SagaWinbarProperty = { fg=c.aqua },
+    SagaWinbarVariable = { fg=c.red },
+    SagaWinbarInterface = { fg=c.yellow },
+    SagaWinbarNamespace = { fg=c.yellow },
+    SagaWinbarParameter = { fg=c.aqua },
+    SagaWinbarTypeAlias = { fg=c.yellow },
+    SagaWinbarEnumMember = { fg=c.yellow },
+    SagaWinbarConstructor = { fg=c.aqua },
+    SagaWinbarStaticMethod = { fg=c.aqua },
+    SagaWinbarPreviewBorder = { fg=c.comment },
+    SagaWinbarTypeParameter = { fg=c.aqua },
+    SagaWinbarFilename = { fg=c.fg },
+    SagaWinbarFoldername = { fg=c.fg },
+    SagaWinbarSep = { fg=c.comment },
+
+    SagaNormal = { bg=c.bg },
+    Title = { fg=c.fg },
+
     -- NeoVim
     healthError = { fg = c.error },
     healthSuccess = { fg = c.green },
@@ -354,10 +401,35 @@ function M.setup(config)
 
     -- Hop
     HopNextKey = { fg = c.red, style = "bold" },
-	HopNextKey1 = { fg = c.blue, style = "bold" },
-	HopNextKey2 = { fg = util.darken(c.blue, 0.80) },
+  	HopNextKey1 = { fg = c.blue, style = "bold" },
+  	HopNextKey2 = { fg = util.darken(c.blue, 0.80) },
     HopUnmatched = { fg = c.comment },
 
+    -- Nvim-Cmp Username-08
+    CmpPmenuBorder = {fg=c.comment, bg=c.bg},
+    CmpPmenu = {bg=c.bg},
+    CmpItemKindEnum = {fg=c.yellow},
+    CmpItemKindEnumMember = {fg=c.yellow},
+    CmpItemKindClass = {fg=c.yellow},
+    CmpItemKindStruct = {fg=c.yellow},
+    CmpItemKindModule = {fg=c.yellow},
+    CmpItemKindModule = {fg=c.yellow},
+    CmpItemKindInterface = {fg=c.yellow},
+    CmpItemKindConstant = {fg=c.yellow},
+    CmpItemKindSnippet = {fg=c.purple},
+    CmpItemKindKeyword = {fg=c.purple},
+    CmpItemKindMethod = {fg=c.blue},
+    CmpItemKindFunction = {fg=c.blue},
+    CmpItemKindConstructor = {fg=c.blue},
+    CmpItemKindProperty = {fg=c.aqua},
+    CmpItemKindField = {fg=c.aqua},
+    CmpItemKindFolder = {fg=c.green},
+    CmpItemKindFile = {fg=c.green},
+    CmpItemKindCopilot = {fg=c.green},
+
+    CmpItemAbbr = {fg=c.comment},
+    PmenuSel = {bg=c.green, fg=c.bg},
+    
   }
 
   if config.hideInactiveStatusline then

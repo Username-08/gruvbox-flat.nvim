@@ -240,7 +240,6 @@ function util.load(theme)
     vim.cmd('highlight! link @variable TSVariable')
     vim.cmd('highlight! link @variable.builtin TSVariableBuiltin')
     vim.cmd('highlight! link @type.builtin TSConstant')
-
   end
 end
 

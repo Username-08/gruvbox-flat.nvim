@@ -241,6 +241,31 @@ function util.load(theme)
     vim.cmd('highlight! link @variable.builtin TSVariableBuiltin')
     vim.cmd('highlight! link @type.builtin TSConstant')
   end
+  if vim.fn.has('nvim-0.9') then
+    vim.cmd('highlight! link @lsp.type.class TSType')
+    vim.cmd('highlight! link @lsp.type.comment TSComment')
+    vim.cmd('highlight! link @lsp.type.decorator TSFunction')
+    vim.cmd('highlight! link @lsp.type.enum TSType')
+    vim.cmd('highlight! link @lsp.type.enumMember TSProperty')
+    vim.cmd('highlight! link @lsp.type.events TSLabel')
+    vim.cmd('highlight! link @lsp.type.function TSFunction')
+    vim.cmd('highlight! link @lsp.type.interface TSType')
+    vim.cmd('highlight! link @lsp.type.keyword TSKeyword')
+    vim.cmd('highlight! link @lsp.type.macro TSConstMacro')
+    vim.cmd('highlight! link @lsp.type.method TSMethod')
+    vim.cmd('highlight! link @lsp.type.modifier TSTypeQualifier')
+    vim.cmd('highlight! link @lsp.type.namespace TSNamespace')
+    vim.cmd('highlight! link @lsp.type.number TSNumber')
+    vim.cmd('highlight! link @lsp.type.operator TSOperator')
+    vim.cmd('highlight! link @lsp.type.parameter TSParameter')
+    vim.cmd('highlight! link @lsp.type.property TSProperty')
+    vim.cmd('highlight! link @lsp.type.regexp TSStringRegex')
+    vim.cmd('highlight! link @lsp.type.string TSString')
+    vim.cmd('highlight! link @lsp.type.struct TSType')
+    vim.cmd('highlight! link @lsp.type.type TSType')
+    vim.cmd('highlight! link @lsp.type.typeParameter TSTypeDefinition')
+    vim.cmd('highlight! link @lsp.type.variable TSVariable')
+  end
 end
 
 ---@param colors ColorScheme
